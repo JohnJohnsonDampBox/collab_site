@@ -50,7 +50,7 @@ class QuestionsController < ApplicationController
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.json { head :no_content }
         if user_signed_in?
-          @question.users << @user unless @question.users.include? @user
+          @question.users |= [@user]
         end
       else
         format.html { render action: 'edit' }
