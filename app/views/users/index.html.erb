@@ -1,0 +1,8 @@
+<ul>
+  <% @users.each do |user| %>
+  <h2><%= user.email %></h2>
+    <% user.questions.each do |q| %>
+      <h3><li><%= link_to q.subject, question_path(q) %></li></h3>
+    <% end %>
+  <% end %>
+</ul>

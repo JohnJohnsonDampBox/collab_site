@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<span class='label'>Subject:</span>
+<%= @question.subject %>
+
+<blockquote>
+  <p><%= @question.body %>
+  <cite><%= @question.created_by %></cite></p>
+</blockquote>
+
+<p>
+  <span class='label'>Answer:</span>
+  <%= @question.answer %>
+</p>
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>
+
+<h2>Edited By</h2>
+<% @question.users.each do |u| %>
+  <li><%= u.email %></li>
+<% end %>
